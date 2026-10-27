@@ -1,0 +1,32 @@
+{
+  "hasBackend": false,
+  "hasProvider": false,
+  "nodes": [
+    {
+      "kind": "module",
+      "address": "module.a",
+      "file": "modules/b/main.tf",
+      "line": 1
+    },
+    {
+      "kind": "resource",
+      "address": "null_resource.b",
+      "type": "null_resource",
+      "file": "modules/b/main.tf",
+      "line": 5
+    }
+  ],
+  "edges": null,
+  "calls": [
+    {
+      "name": "a",
+      "source": "../a",
+      "inputs": {},
+      "count": false,
+      "forEach": false,
+      "file": "modules/b/main.tf",
+      "line": 1
+    }
+  ],
+  "diags": null
+}

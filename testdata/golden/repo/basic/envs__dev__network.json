@@ -1,0 +1,740 @@
+{
+  "sha": "test-sha",
+  "root": "envs/dev/network",
+  "env": "dev",
+  "component": "network",
+  "nodes": [
+    {
+      "id": "envs/dev/network::aws_eip.nat",
+      "kind": "resource",
+      "address": "aws_eip.nat",
+      "type": "aws_eip",
+      "file": "envs/dev/network/main.tf",
+      "line": 76,
+      "meta": {
+        "count": true
+      }
+    },
+    {
+      "id": "envs/dev/network::aws_instance.nat",
+      "kind": "resource",
+      "address": "aws_instance.nat",
+      "type": "aws_instance",
+      "file": "envs/dev/network/main.tf",
+      "line": 62,
+      "meta": {
+        "count": true
+      }
+    },
+    {
+      "id": "envs/dev/network::aws_route53_record.nat",
+      "kind": "resource",
+      "address": "aws_route53_record.nat",
+      "type": "aws_route53_record",
+      "file": "envs/dev/network/main.tf",
+      "line": 101
+    },
+    {
+      "id": "envs/dev/network::aws_security_group.nat",
+      "kind": "resource",
+      "address": "aws_security_group.nat",
+      "type": "aws_security_group",
+      "file": "envs/dev/network/main.tf",
+      "line": 29
+    },
+    {
+      "id": "envs/dev/network::data.aws_ami.nat",
+      "kind": "data",
+      "address": "data.aws_ami.nat",
+      "type": "aws_ami",
+      "file": "envs/dev/network/main.tf",
+      "line": 12
+    },
+    {
+      "id": "envs/dev/network::data.aws_availability_zones.available",
+      "kind": "data",
+      "address": "data.aws_availability_zones.available",
+      "type": "aws_availability_zones",
+      "file": "envs/dev/network/main.tf",
+      "line": 8
+    },
+    {
+      "id": "envs/dev/network::local.azs",
+      "kind": "local",
+      "address": "local.azs",
+      "file": "envs/dev/network/main.tf",
+      "line": 4
+    },
+    {
+      "id": "envs/dev/network::local.egress_cidrs",
+      "kind": "local",
+      "address": "local.egress_cidrs",
+      "file": "envs/dev/network/main.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/dev/network::local.prefix",
+      "kind": "local",
+      "address": "local.prefix",
+      "file": "envs/dev/network/main.tf",
+      "line": 2
+    },
+    {
+      "id": "envs/dev/network::module.flow_logs",
+      "kind": "module",
+      "address": "module.flow_logs",
+      "external": true,
+      "file": "envs/dev/network/main.tf",
+      "line": 93
+    },
+    {
+      "id": "envs/dev/network::module.vpc",
+      "kind": "module",
+      "address": "module.vpc",
+      "file": "envs/dev/network/main.tf",
+      "line": 17
+    },
+    {
+      "id": "envs/dev/network::module.vpc.aws_vpc.this",
+      "kind": "resource",
+      "address": "module.vpc.aws_vpc.this",
+      "type": "aws_vpc",
+      "parentModule": "envs/dev/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 13
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.private_subnets",
+      "kind": "module",
+      "address": "module.vpc.module.private_subnets",
+      "parentModule": "envs/dev/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 29
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.private_subnets.aws_subnet.this",
+      "kind": "resource",
+      "address": "module.vpc.module.private_subnets.aws_subnet.this",
+      "type": "aws_subnet",
+      "parentModule": "envs/dev/network::module.vpc.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 17,
+      "meta": {
+        "forEach": true
+      }
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.private_subnets.local.subnets",
+      "kind": "local",
+      "address": "module.vpc.module.private_subnets.local.subnets",
+      "parentModule": "envs/dev/network::module.vpc.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.private_subnets.output.ids",
+      "kind": "output",
+      "address": "module.vpc.module.private_subnets.output.ids",
+      "parentModule": "envs/dev/network::module.vpc.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 25
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.private_subnets.var.azs",
+      "kind": "variable",
+      "address": "module.vpc.module.private_subnets.var.azs",
+      "parentModule": "envs/dev/network::module.vpc.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.private_subnets.var.cidrs",
+      "kind": "variable",
+      "address": "module.vpc.module.private_subnets.var.cidrs",
+      "parentModule": "envs/dev/network::module.vpc.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 9
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.private_subnets.var.vpc_id",
+      "kind": "variable",
+      "address": "module.vpc.module.private_subnets.var.vpc_id",
+      "parentModule": "envs/dev/network::module.vpc.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 1
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.public_subnets",
+      "kind": "module",
+      "address": "module.vpc.module.public_subnets",
+      "parentModule": "envs/dev/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 21
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.public_subnets.aws_subnet.this",
+      "kind": "resource",
+      "address": "module.vpc.module.public_subnets.aws_subnet.this",
+      "type": "aws_subnet",
+      "parentModule": "envs/dev/network::module.vpc.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 17,
+      "meta": {
+        "forEach": true
+      }
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.public_subnets.local.subnets",
+      "kind": "local",
+      "address": "module.vpc.module.public_subnets.local.subnets",
+      "parentModule": "envs/dev/network::module.vpc.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.public_subnets.output.ids",
+      "kind": "output",
+      "address": "module.vpc.module.public_subnets.output.ids",
+      "parentModule": "envs/dev/network::module.vpc.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 25
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.public_subnets.var.azs",
+      "kind": "variable",
+      "address": "module.vpc.module.public_subnets.var.azs",
+      "parentModule": "envs/dev/network::module.vpc.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.public_subnets.var.cidrs",
+      "kind": "variable",
+      "address": "module.vpc.module.public_subnets.var.cidrs",
+      "parentModule": "envs/dev/network::module.vpc.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 9
+    },
+    {
+      "id": "envs/dev/network::module.vpc.module.public_subnets.var.vpc_id",
+      "kind": "variable",
+      "address": "module.vpc.module.public_subnets.var.vpc_id",
+      "parentModule": "envs/dev/network::module.vpc.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 1
+    },
+    {
+      "id": "envs/dev/network::module.vpc.output.cidr",
+      "kind": "output",
+      "address": "module.vpc.output.cidr",
+      "parentModule": "envs/dev/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 41
+    },
+    {
+      "id": "envs/dev/network::module.vpc.output.private_subnet_ids",
+      "kind": "output",
+      "address": "module.vpc.output.private_subnet_ids",
+      "parentModule": "envs/dev/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 49
+    },
+    {
+      "id": "envs/dev/network::module.vpc.output.public_subnet_ids",
+      "kind": "output",
+      "address": "module.vpc.output.public_subnet_ids",
+      "parentModule": "envs/dev/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 45
+    },
+    {
+      "id": "envs/dev/network::module.vpc.output.vpc_id",
+      "kind": "output",
+      "address": "module.vpc.output.vpc_id",
+      "parentModule": "envs/dev/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 37
+    },
+    {
+      "id": "envs/dev/network::module.vpc.var.azs",
+      "kind": "variable",
+      "address": "module.vpc.var.azs",
+      "parentModule": "envs/dev/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 9
+    },
+    {
+      "id": "envs/dev/network::module.vpc.var.cidr",
+      "kind": "variable",
+      "address": "module.vpc.var.cidr",
+      "parentModule": "envs/dev/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/dev/network::module.vpc.var.name",
+      "kind": "variable",
+      "address": "module.vpc.var.name",
+      "parentModule": "envs/dev/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 1
+    },
+    {
+      "id": "envs/dev/network::output.nat_ips",
+      "kind": "output",
+      "address": "output.nat_ips",
+      "file": "envs/dev/network/outputs.tf",
+      "line": 1
+    },
+    {
+      "id": "envs/dev/network::output.vpc_id",
+      "kind": "output",
+      "address": "output.vpc_id",
+      "file": "envs/dev/network/outputs.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/dev/network::var.egress_rules",
+      "kind": "variable",
+      "address": "var.egress_rules",
+      "file": "envs/dev/network/variables.tf",
+      "line": 22
+    },
+    {
+      "id": "envs/dev/network::var.excluded_az",
+      "kind": "variable",
+      "address": "var.excluded_az",
+      "file": "envs/dev/network/variables.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/dev/network::var.ingress_rules",
+      "kind": "variable",
+      "address": "var.ingress_rules",
+      "file": "envs/dev/network/variables.tf",
+      "line": 10
+    },
+    {
+      "id": "envs/dev/network::var.vpc_cidr",
+      "kind": "variable",
+      "address": "var.vpc_cidr",
+      "file": "envs/dev/network/variables.tf",
+      "line": 1
+    }
+  ],
+  "edges": [
+    {
+      "from": "envs/dev/network::aws_eip.nat",
+      "to": "envs/dev/network::aws_instance.nat",
+      "kind": "reference",
+      "attr": "count",
+      "file": "envs/dev/network/main.tf",
+      "line": 77
+    },
+    {
+      "from": "envs/dev/network::aws_eip.nat",
+      "to": "envs/dev/network::aws_instance.nat",
+      "kind": "reference",
+      "attr": "instance",
+      "file": "envs/dev/network/main.tf",
+      "line": 78
+    },
+    {
+      "from": "envs/dev/network::aws_eip.nat",
+      "to": "envs/dev/network::aws_instance.nat",
+      "kind": "replace_triggered_by",
+      "attr": "lifecycle.replace_triggered_by",
+      "file": "envs/dev/network/main.tf",
+      "line": 83
+    },
+    {
+      "from": "envs/dev/network::aws_eip.nat",
+      "to": "envs/dev/network::module.vpc",
+      "kind": "depends_on",
+      "attr": "depends_on",
+      "file": "envs/dev/network/main.tf",
+      "line": 80
+    },
+    {
+      "from": "envs/dev/network::aws_instance.nat",
+      "to": "envs/dev/network::aws_security_group.nat",
+      "kind": "reference",
+      "attr": "vpc_security_group_ids",
+      "file": "envs/dev/network/main.tf",
+      "line": 69
+    },
+    {
+      "from": "envs/dev/network::aws_instance.nat",
+      "to": "envs/dev/network::data.aws_ami.nat",
+      "kind": "reference",
+      "attr": "ami",
+      "file": "envs/dev/network/main.tf",
+      "line": 66
+    },
+    {
+      "from": "envs/dev/network::aws_instance.nat",
+      "to": "envs/dev/network::local.prefix",
+      "kind": "reference",
+      "attr": "tags",
+      "file": "envs/dev/network/main.tf",
+      "line": 72
+    },
+    {
+      "from": "envs/dev/network::aws_instance.nat",
+      "to": "envs/dev/network::module.vpc",
+      "kind": "module_io",
+      "attr": "subnet_id",
+      "port": "public_subnet_ids",
+      "file": "envs/dev/network/main.tf",
+      "line": 68
+    },
+    {
+      "from": "envs/dev/network::aws_security_group.nat",
+      "to": "envs/dev/network::local.egress_cidrs",
+      "kind": "reference",
+      "attr": "egress.cidr_blocks",
+      "file": "envs/dev/network/main.tf",
+      "line": 52
+    },
+    {
+      "from": "envs/dev/network::aws_security_group.nat",
+      "to": "envs/dev/network::local.prefix",
+      "kind": "reference",
+      "attr": "name",
+      "file": "envs/dev/network/main.tf",
+      "line": 30
+    },
+    {
+      "from": "envs/dev/network::aws_security_group.nat",
+      "to": "envs/dev/network::module.vpc",
+      "kind": "module_io",
+      "attr": "ingress.cidr_blocks",
+      "port": "cidr",
+      "file": "envs/dev/network/main.tf",
+      "line": 40
+    },
+    {
+      "from": "envs/dev/network::aws_security_group.nat",
+      "to": "envs/dev/network::module.vpc",
+      "kind": "module_io",
+      "attr": "vpc_id",
+      "port": "vpc_id",
+      "file": "envs/dev/network/main.tf",
+      "line": 31
+    },
+    {
+      "from": "envs/dev/network::aws_security_group.nat",
+      "to": "envs/dev/network::var.egress_rules",
+      "kind": "reference",
+      "attr": "egress.for_each",
+      "file": "envs/dev/network/main.tf",
+      "line": 46
+    },
+    {
+      "from": "envs/dev/network::aws_security_group.nat",
+      "to": "envs/dev/network::var.ingress_rules",
+      "kind": "reference",
+      "attr": "ingress.for_each",
+      "file": "envs/dev/network/main.tf",
+      "line": 35
+    },
+    {
+      "from": "envs/dev/network::local.azs",
+      "to": "envs/dev/network::data.aws_availability_zones.available",
+      "kind": "reference",
+      "file": "envs/dev/network/main.tf",
+      "line": 4
+    },
+    {
+      "from": "envs/dev/network::local.azs",
+      "to": "envs/dev/network::var.excluded_az",
+      "kind": "reference",
+      "file": "envs/dev/network/main.tf",
+      "line": 4
+    },
+    {
+      "from": "envs/dev/network::local.egress_cidrs",
+      "to": "envs/dev/network::module.vpc",
+      "kind": "module_io",
+      "port": "cidr",
+      "file": "envs/dev/network/main.tf",
+      "line": 5
+    },
+    {
+      "from": "envs/dev/network::module.flow_logs",
+      "to": "envs/dev/network::module.vpc",
+      "kind": "module_io",
+      "attr": "vpc_id",
+      "port": "vpc_id",
+      "file": "envs/dev/network/main.tf",
+      "line": 97
+    },
+    {
+      "from": "envs/dev/network::module.vpc",
+      "to": "envs/dev/network::local.azs",
+      "kind": "module_io",
+      "attr": "azs",
+      "file": "envs/dev/network/main.tf",
+      "line": 22
+    },
+    {
+      "from": "envs/dev/network::module.vpc",
+      "to": "envs/dev/network::local.prefix",
+      "kind": "module_io",
+      "attr": "name",
+      "file": "envs/dev/network/main.tf",
+      "line": 20
+    },
+    {
+      "from": "envs/dev/network::module.vpc",
+      "to": "envs/dev/network::var.vpc_cidr",
+      "kind": "module_io",
+      "attr": "cidr",
+      "file": "envs/dev/network/main.tf",
+      "line": 21
+    },
+    {
+      "from": "envs/dev/network::module.vpc.aws_vpc.this",
+      "to": "envs/dev/network::module.vpc.var.cidr",
+      "kind": "reference",
+      "attr": "cidr_block",
+      "file": "modules/vpc/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/dev/network::module.vpc.aws_vpc.this",
+      "to": "envs/dev/network::module.vpc.var.name",
+      "kind": "reference",
+      "attr": "tags",
+      "file": "modules/vpc/main.tf",
+      "line": 16
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.private_subnets",
+      "to": "envs/dev/network::module.vpc.aws_vpc.this",
+      "kind": "module_io",
+      "attr": "vpc_id",
+      "file": "modules/vpc/main.tf",
+      "line": 32
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.private_subnets",
+      "to": "envs/dev/network::module.vpc.var.azs",
+      "kind": "module_io",
+      "attr": "azs",
+      "file": "modules/vpc/main.tf",
+      "line": 33
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.private_subnets",
+      "to": "envs/dev/network::module.vpc.var.azs",
+      "kind": "module_io",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 34
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.private_subnets",
+      "to": "envs/dev/network::module.vpc.var.cidr",
+      "kind": "module_io",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 34
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.private_subnets.aws_subnet.this",
+      "to": "envs/dev/network::module.vpc.module.private_subnets.local.subnets",
+      "kind": "reference",
+      "attr": "for_each",
+      "file": "modules/subnet/main.tf",
+      "line": 18
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.private_subnets.aws_subnet.this",
+      "to": "envs/dev/network::module.vpc.module.private_subnets.var.vpc_id",
+      "kind": "reference",
+      "attr": "vpc_id",
+      "file": "modules/subnet/main.tf",
+      "line": 20
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.private_subnets.local.subnets",
+      "to": "envs/dev/network::module.vpc.module.private_subnets.var.azs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.private_subnets.local.subnets",
+      "to": "envs/dev/network::module.vpc.module.private_subnets.var.cidrs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.private_subnets.output.ids",
+      "to": "envs/dev/network::module.vpc.module.private_subnets.aws_subnet.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/subnet/main.tf",
+      "line": 26
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.public_subnets",
+      "to": "envs/dev/network::module.vpc.aws_vpc.this",
+      "kind": "module_io",
+      "attr": "vpc_id",
+      "file": "modules/vpc/main.tf",
+      "line": 24
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.public_subnets",
+      "to": "envs/dev/network::module.vpc.var.azs",
+      "kind": "module_io",
+      "attr": "azs",
+      "file": "modules/vpc/main.tf",
+      "line": 25
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.public_subnets",
+      "to": "envs/dev/network::module.vpc.var.azs",
+      "kind": "module_io",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 26
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.public_subnets",
+      "to": "envs/dev/network::module.vpc.var.cidr",
+      "kind": "module_io",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 26
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.public_subnets.aws_subnet.this",
+      "to": "envs/dev/network::module.vpc.module.public_subnets.local.subnets",
+      "kind": "reference",
+      "attr": "for_each",
+      "file": "modules/subnet/main.tf",
+      "line": 18
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.public_subnets.aws_subnet.this",
+      "to": "envs/dev/network::module.vpc.module.public_subnets.var.vpc_id",
+      "kind": "reference",
+      "attr": "vpc_id",
+      "file": "modules/subnet/main.tf",
+      "line": 20
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.public_subnets.local.subnets",
+      "to": "envs/dev/network::module.vpc.module.public_subnets.var.azs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.public_subnets.local.subnets",
+      "to": "envs/dev/network::module.vpc.module.public_subnets.var.cidrs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/dev/network::module.vpc.module.public_subnets.output.ids",
+      "to": "envs/dev/network::module.vpc.module.public_subnets.aws_subnet.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/subnet/main.tf",
+      "line": 26
+    },
+    {
+      "from": "envs/dev/network::module.vpc.output.cidr",
+      "to": "envs/dev/network::module.vpc.aws_vpc.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/vpc/main.tf",
+      "line": 42
+    },
+    {
+      "from": "envs/dev/network::module.vpc.output.private_subnet_ids",
+      "to": "envs/dev/network::module.vpc.module.private_subnets",
+      "kind": "module_io",
+      "attr": "value",
+      "port": "ids",
+      "file": "modules/vpc/main.tf",
+      "line": 50
+    },
+    {
+      "from": "envs/dev/network::module.vpc.output.public_subnet_ids",
+      "to": "envs/dev/network::module.vpc.module.public_subnets",
+      "kind": "module_io",
+      "attr": "value",
+      "port": "ids",
+      "file": "modules/vpc/main.tf",
+      "line": 46
+    },
+    {
+      "from": "envs/dev/network::module.vpc.output.vpc_id",
+      "to": "envs/dev/network::module.vpc.aws_vpc.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/vpc/main.tf",
+      "line": 38
+    },
+    {
+      "from": "envs/dev/network::output.nat_ips",
+      "to": "envs/dev/network::aws_eip.nat",
+      "kind": "reference",
+      "attr": "value",
+      "file": "envs/dev/network/outputs.tf",
+      "line": 2
+    },
+    {
+      "from": "envs/dev/network::output.vpc_id",
+      "to": "envs/dev/network::module.vpc",
+      "kind": "module_io",
+      "attr": "value",
+      "port": "vpc_id",
+      "file": "envs/dev/network/outputs.tf",
+      "line": 6
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "error",
+      "code": "parse_error",
+      "message": "Missing expression: Expected the start of an expression, but found the end of the file.",
+      "file": "envs/dev/network/broken.tf",
+      "line": 5
+    },
+    {
+      "severity": "info",
+      "code": "external_module",
+      "message": "module.flow_logs のソース \"terraform-aws-modules/vpc-flow-log/aws\" はリポジトリ外のため中身を解決しません",
+      "file": "envs/dev/network/main.tf",
+      "line": 93
+    },
+    {
+      "severity": "warning",
+      "code": "unresolved_reference",
+      "message": "aws_route53_record.nat の参照 var.zone_id を解決できません",
+      "file": "envs/dev/network/main.tf",
+      "line": 102
+    },
+    {
+      "severity": "warning",
+      "code": "unresolved_reference",
+      "message": "aws_route53_record.nat の参照 aws_instance.bastion を解決できません",
+      "file": "envs/dev/network/main.tf",
+      "line": 105
+    },
+    {
+      "severity": "warning",
+      "code": "unsupported_override",
+      "message": "override ファイルのマージには未対応のため、内容を無視しました",
+      "file": "envs/dev/network/override.tf"
+    }
+  ]
+}

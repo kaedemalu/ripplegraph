@@ -1,0 +1,57 @@
+{
+  "sha": "test-sha",
+  "root": "root",
+  "nodes": [
+    {
+      "id": "root::module.a",
+      "kind": "module",
+      "address": "module.a",
+      "file": "root/main.tf",
+      "line": 3
+    },
+    {
+      "id": "root::module.a.module.b",
+      "kind": "module",
+      "address": "module.a.module.b",
+      "parentModule": "root::module.a",
+      "file": "modules/a/main.tf",
+      "line": 1
+    },
+    {
+      "id": "root::module.a.module.b.module.a",
+      "kind": "module",
+      "address": "module.a.module.b.module.a",
+      "parentModule": "root::module.a.module.b",
+      "file": "modules/b/main.tf",
+      "line": 1
+    },
+    {
+      "id": "root::module.a.module.b.null_resource.b",
+      "kind": "resource",
+      "address": "module.a.module.b.null_resource.b",
+      "type": "null_resource",
+      "parentModule": "root::module.a.module.b",
+      "file": "modules/b/main.tf",
+      "line": 5
+    },
+    {
+      "id": "root::module.a.null_resource.a",
+      "kind": "resource",
+      "address": "module.a.null_resource.a",
+      "type": "null_resource",
+      "parentModule": "root::module.a",
+      "file": "modules/a/main.tf",
+      "line": 5
+    }
+  ],
+  "edges": [],
+  "diagnostics": [
+    {
+      "severity": "error",
+      "code": "module_cycle",
+      "message": "module.a.module.b.module.a でモジュールの循環参照を検出したため展開を打ち切りました（root → modules/a → modules/b → modules/a）",
+      "file": "modules/b/main.tf",
+      "line": 1
+    }
+  ]
+}

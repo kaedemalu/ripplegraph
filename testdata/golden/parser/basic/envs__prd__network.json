@@ -1,0 +1,125 @@
+{
+  "hasBackend": true,
+  "hasProvider": true,
+  "nodes": [
+    {
+      "kind": "resource",
+      "address": "aws_instance.nat",
+      "type": "aws_instance",
+      "file": "envs/prd/network/main.tf",
+      "line": 28
+    },
+    {
+      "kind": "resource",
+      "address": "aws_vpc_peering_connection.main_shared",
+      "type": "aws_vpc_peering_connection",
+      "file": "envs/prd/network/main.tf",
+      "line": 23
+    },
+    {
+      "kind": "module",
+      "address": "module.vpc",
+      "file": "envs/prd/network/main.tf",
+      "line": 6,
+      "meta": {
+        "forEach": true
+      }
+    },
+    {
+      "kind": "module",
+      "address": "module.vpc_shared",
+      "file": "envs/prd/network/main.tf",
+      "line": 15
+    },
+    {
+      "kind": "output",
+      "address": "output.vpc_ids",
+      "file": "envs/prd/network/main.tf",
+      "line": 33
+    },
+    {
+      "kind": "variable",
+      "address": "var.vpc_cidrs",
+      "file": "envs/prd/network/main.tf",
+      "line": 1
+    }
+  ],
+  "edges": [
+    {
+      "from": "aws_instance.nat",
+      "to": "module.vpc",
+      "kind": "reference",
+      "attr": "subnet_id",
+      "port": "public_subnet_ids",
+      "file": "envs/prd/network/main.tf",
+      "line": 30
+    },
+    {
+      "from": "aws_vpc_peering_connection.main_shared",
+      "to": "module.vpc",
+      "kind": "reference",
+      "attr": "vpc_id",
+      "port": "vpc_id",
+      "file": "envs/prd/network/main.tf",
+      "line": 24
+    },
+    {
+      "from": "aws_vpc_peering_connection.main_shared",
+      "to": "module.vpc_shared",
+      "kind": "reference",
+      "attr": "peer_vpc_id",
+      "port": "vpc_id",
+      "file": "envs/prd/network/main.tf",
+      "line": 25
+    },
+    {
+      "from": "module.vpc",
+      "to": "var.vpc_cidrs",
+      "kind": "reference",
+      "attr": "for_each",
+      "file": "envs/prd/network/main.tf",
+      "line": 7
+    },
+    {
+      "from": "output.vpc_ids",
+      "to": "module.vpc",
+      "kind": "reference",
+      "attr": "value",
+      "file": "envs/prd/network/main.tf",
+      "line": 34
+    }
+  ],
+  "calls": [
+    {
+      "name": "vpc",
+      "source": "../../../modules/vpc",
+      "inputs": {
+        "azs": [],
+        "cidr": [
+          "each.value"
+        ],
+        "name": [
+          "each.key"
+        ]
+      },
+      "count": false,
+      "forEach": true,
+      "file": "envs/prd/network/main.tf",
+      "line": 6
+    },
+    {
+      "name": "vpc_shared",
+      "source": "../../../modules/vpc",
+      "inputs": {
+        "azs": [],
+        "cidr": [],
+        "name": []
+      },
+      "count": false,
+      "forEach": false,
+      "file": "envs/prd/network/main.tf",
+      "line": 15
+    }
+  ],
+  "diags": null
+}

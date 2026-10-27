@@ -1,0 +1,78 @@
+{
+  "sha": "test-sha",
+  "root": "envs/dev/app",
+  "env": "dev",
+  "component": "app",
+  "nodes": [
+    {
+      "id": "envs/dev/app::aws_instance.web",
+      "kind": "resource",
+      "address": "aws_instance.web",
+      "type": "aws_instance",
+      "file": "envs/dev/app/main.tf",
+      "line": 22,
+      "meta": {
+        "count": true
+      }
+    },
+    {
+      "id": "envs/dev/app::aws_lb_target_group.web",
+      "kind": "resource",
+      "address": "aws_lb_target_group.web",
+      "type": "aws_lb_target_group",
+      "file": "envs/dev/app/main.tf",
+      "line": 28
+    },
+    {
+      "id": "envs/dev/app::aws_lb_target_group_attachment.web",
+      "kind": "resource",
+      "address": "aws_lb_target_group_attachment.web",
+      "type": "aws_lb_target_group_attachment",
+      "file": "envs/dev/app/main.tf",
+      "line": 36
+    },
+    {
+      "id": "envs/dev/app::data.terraform_remote_state.network",
+      "kind": "data",
+      "address": "data.terraform_remote_state.network",
+      "type": "terraform_remote_state",
+      "file": "envs/dev/app/main.tf",
+      "line": 13
+    }
+  ],
+  "edges": [
+    {
+      "from": "envs/dev/app::aws_instance.web",
+      "to": "envs/dev/app::data.terraform_remote_state.network",
+      "kind": "reference",
+      "attr": "subnet_id",
+      "file": "envs/dev/app/main.tf",
+      "line": 25
+    },
+    {
+      "from": "envs/dev/app::aws_lb_target_group.web",
+      "to": "envs/dev/app::data.terraform_remote_state.network",
+      "kind": "reference",
+      "attr": "vpc_id",
+      "file": "envs/dev/app/main.tf",
+      "line": 32
+    },
+    {
+      "from": "envs/dev/app::aws_lb_target_group_attachment.web",
+      "to": "envs/dev/app::aws_instance.web",
+      "kind": "reference",
+      "attr": "target_id",
+      "file": "envs/dev/app/main.tf",
+      "line": 38
+    },
+    {
+      "from": "envs/dev/app::aws_lb_target_group_attachment.web",
+      "to": "envs/dev/app::aws_lb_target_group.web",
+      "kind": "reference",
+      "attr": "target_group_arn",
+      "file": "envs/dev/app/main.tf",
+      "line": 37
+    }
+  ],
+  "diagnostics": []
+}

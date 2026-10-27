@@ -1,0 +1,73 @@
+{
+  "hasBackend": true,
+  "hasProvider": true,
+  "nodes": [
+    {
+      "kind": "resource",
+      "address": "aws_instance.web",
+      "type": "aws_instance",
+      "file": "envs/dev/app/main.tf",
+      "line": 22,
+      "meta": {
+        "count": true
+      }
+    },
+    {
+      "kind": "resource",
+      "address": "aws_lb_target_group.web",
+      "type": "aws_lb_target_group",
+      "file": "envs/dev/app/main.tf",
+      "line": 28
+    },
+    {
+      "kind": "resource",
+      "address": "aws_lb_target_group_attachment.web",
+      "type": "aws_lb_target_group_attachment",
+      "file": "envs/dev/app/main.tf",
+      "line": 36
+    },
+    {
+      "kind": "data",
+      "address": "data.terraform_remote_state.network",
+      "type": "terraform_remote_state",
+      "file": "envs/dev/app/main.tf",
+      "line": 13
+    }
+  ],
+  "edges": [
+    {
+      "from": "aws_instance.web",
+      "to": "data.terraform_remote_state.network",
+      "kind": "reference",
+      "attr": "subnet_id",
+      "file": "envs/dev/app/main.tf",
+      "line": 25
+    },
+    {
+      "from": "aws_lb_target_group.web",
+      "to": "data.terraform_remote_state.network",
+      "kind": "reference",
+      "attr": "vpc_id",
+      "file": "envs/dev/app/main.tf",
+      "line": 32
+    },
+    {
+      "from": "aws_lb_target_group_attachment.web",
+      "to": "aws_instance.web",
+      "kind": "reference",
+      "attr": "target_id",
+      "file": "envs/dev/app/main.tf",
+      "line": 38
+    },
+    {
+      "from": "aws_lb_target_group_attachment.web",
+      "to": "aws_lb_target_group.web",
+      "kind": "reference",
+      "attr": "target_group_arn",
+      "file": "envs/dev/app/main.tf",
+      "line": 37
+    }
+  ],
+  "calls": [],
+  "diags": null
+}

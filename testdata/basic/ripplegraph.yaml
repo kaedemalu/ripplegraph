@@ -1,0 +1,4 @@
+roots:
+  include: []
+  exclude: []
+pathPattern: "envs/{env}/{component}"

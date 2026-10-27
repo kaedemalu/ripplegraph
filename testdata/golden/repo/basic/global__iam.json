@@ -1,0 +1,33 @@
+{
+  "sha": "test-sha",
+  "root": "global/iam",
+  "nodes": [
+    {
+      "id": "global/iam::aws_iam_role.ci",
+      "kind": "resource",
+      "address": "aws_iam_role.ci",
+      "type": "aws_iam_role",
+      "file": "global/iam/main.tf",
+      "line": 5
+    },
+    {
+      "id": "global/iam::data.aws_iam_policy_document.ci",
+      "kind": "data",
+      "address": "data.aws_iam_policy_document.ci",
+      "type": "aws_iam_policy_document",
+      "file": "global/iam/main.tf",
+      "line": 10
+    }
+  ],
+  "edges": [
+    {
+      "from": "global/iam::aws_iam_role.ci",
+      "to": "global/iam::data.aws_iam_policy_document.ci",
+      "kind": "reference",
+      "attr": "assume_role_policy",
+      "file": "global/iam/main.tf",
+      "line": 7
+    }
+  ],
+  "diagnostics": []
+}

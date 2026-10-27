@@ -1,0 +1,32 @@
+{
+  "hasBackend": false,
+  "hasProvider": true,
+  "nodes": [
+    {
+      "kind": "resource",
+      "address": "aws_iam_role.ci",
+      "type": "aws_iam_role",
+      "file": "global/iam/main.tf",
+      "line": 5
+    },
+    {
+      "kind": "data",
+      "address": "data.aws_iam_policy_document.ci",
+      "type": "aws_iam_policy_document",
+      "file": "global/iam/main.tf",
+      "line": 10
+    }
+  ],
+  "edges": [
+    {
+      "from": "aws_iam_role.ci",
+      "to": "data.aws_iam_policy_document.ci",
+      "kind": "reference",
+      "attr": "assume_role_policy",
+      "file": "global/iam/main.tf",
+      "line": 7
+    }
+  ],
+  "calls": [],
+  "diags": null
+}

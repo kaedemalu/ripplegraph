@@ -1,0 +1,79 @@
+{
+  "hasBackend": true,
+  "hasProvider": true,
+  "nodes": [
+    {
+      "kind": "resource",
+      "address": "aws_route53_record.app_a",
+      "type": "aws_route53_record",
+      "file": "envs/prd/app/main.tf",
+      "line": 25
+    },
+    {
+      "kind": "module",
+      "address": "module.app",
+      "file": "envs/prd/app/main.tf",
+      "line": 13,
+      "meta": {
+        "forEach": true
+      }
+    },
+    {
+      "kind": "module",
+      "address": "module.legacy",
+      "file": "envs/prd/app/main.tf",
+      "line": 21
+    },
+    {
+      "kind": "output",
+      "address": "output.a_url",
+      "file": "envs/prd/app/main.tf",
+      "line": 32
+    }
+  ],
+  "edges": [
+    {
+      "from": "aws_route53_record.app_a",
+      "to": "module.app",
+      "kind": "reference",
+      "attr": "records",
+      "port": "url",
+      "file": "envs/prd/app/main.tf",
+      "line": 29
+    },
+    {
+      "from": "output.a_url",
+      "to": "module.app",
+      "kind": "reference",
+      "attr": "value",
+      "port": "url",
+      "file": "envs/prd/app/main.tf",
+      "line": 33
+    }
+  ],
+  "calls": [
+    {
+      "name": "app",
+      "source": "../../../modules/service",
+      "inputs": {
+        "name": [
+          "each.key"
+        ]
+      },
+      "count": false,
+      "forEach": true,
+      "file": "envs/prd/app/main.tf",
+      "line": 13
+    },
+    {
+      "name": "legacy",
+      "source": "../../../modules/does-not-exist",
+      "inputs": {},
+      "count": false,
+      "forEach": false,
+      "file": "envs/prd/app/main.tf",
+      "line": 21
+    }
+  ],
+  "diags": null
+}

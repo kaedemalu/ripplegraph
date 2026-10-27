@@ -1,0 +1,7 @@
+# make gen-types で internal/graph から web/src/types/graph.ts を生成する
+packages:
+  - path: "ripplegraph/internal/graph"
+    output_path: "web/src/types/graph.ts"
+    enum_style: "union"
+    frontmatter: |
+      // このファイルは internal/graph から tygo で生成している（make gen-types）。手で編集しないこと。

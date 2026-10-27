@@ -1,0 +1,13 @@
+# ビルド成果物
+/bin/
+/dist/
+
+# Terraform（testdata などで terraform init したときの作業ディレクトリ・state）
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# OS / エディタ
+.DS_Store
+
+SPECIFICATION.md

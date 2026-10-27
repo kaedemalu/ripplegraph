@@ -1,0 +1,82 @@
+{
+  "sha": "test-sha",
+  "roots": [
+    {
+      "path": "envs/dev/app",
+      "env": "dev",
+      "component": "app",
+      "resourceCount": 4
+    },
+    {
+      "path": "envs/dev/network",
+      "env": "dev",
+      "component": "network",
+      "resourceCount": 9
+    },
+    {
+      "path": "envs/prd/app",
+      "env": "prd",
+      "component": "app",
+      "resourceCount": 2
+    },
+    {
+      "path": "envs/prd/network",
+      "env": "prd",
+      "component": "network",
+      "resourceCount": 8
+    },
+    {
+      "path": "global/iam",
+      "resourceCount": 2
+    }
+  ],
+  "modules": [
+    {
+      "path": "modules/service"
+    },
+    {
+      "path": "modules/subnet"
+    },
+    {
+      "path": "modules/vpc"
+    }
+  ],
+  "edges": [
+    {
+      "from": "envs/dev/network",
+      "to": "modules/vpc",
+      "kind": "module_call"
+    },
+    {
+      "from": "envs/prd/app",
+      "to": "modules/service",
+      "kind": "module_call"
+    },
+    {
+      "from": "envs/prd/network",
+      "to": "modules/vpc",
+      "kind": "module_call"
+    },
+    {
+      "from": "modules/vpc",
+      "to": "modules/subnet",
+      "kind": "module_call"
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "error",
+      "code": "parse_error",
+      "message": "Missing expression: Expected the start of an expression, but found the end of the file.",
+      "file": "envs/dev/network/broken.tf",
+      "line": 5
+    },
+    {
+      "severity": "error",
+      "code": "module_not_found",
+      "message": "module.legacy のソース \"../../../modules/does-not-exist\" のディレクトリ（modules/does-not-exist）に .tf ファイルがありません",
+      "file": "envs/prd/app/main.tf",
+      "line": 21
+    }
+  ]
+}

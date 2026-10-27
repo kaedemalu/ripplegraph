@@ -1,0 +1,851 @@
+{
+  "sha": "test-sha",
+  "root": "envs/prd/network",
+  "env": "prd",
+  "component": "network",
+  "nodes": [
+    {
+      "id": "envs/prd/network::aws_instance.nat",
+      "kind": "resource",
+      "address": "aws_instance.nat",
+      "type": "aws_instance",
+      "file": "envs/prd/network/main.tf",
+      "line": 28
+    },
+    {
+      "id": "envs/prd/network::aws_vpc_peering_connection.main_shared",
+      "kind": "resource",
+      "address": "aws_vpc_peering_connection.main_shared",
+      "type": "aws_vpc_peering_connection",
+      "file": "envs/prd/network/main.tf",
+      "line": 23
+    },
+    {
+      "id": "envs/prd/network::module.vpc",
+      "kind": "module",
+      "address": "module.vpc",
+      "file": "envs/prd/network/main.tf",
+      "line": 6,
+      "meta": {
+        "forEach": true
+      }
+    },
+    {
+      "id": "envs/prd/network::module.vpc.aws_vpc.this",
+      "kind": "resource",
+      "address": "module.vpc.aws_vpc.this",
+      "type": "aws_vpc",
+      "parentModule": "envs/prd/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 13
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.private_subnets",
+      "kind": "module",
+      "address": "module.vpc.module.private_subnets",
+      "parentModule": "envs/prd/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 29
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.private_subnets.aws_subnet.this",
+      "kind": "resource",
+      "address": "module.vpc.module.private_subnets.aws_subnet.this",
+      "type": "aws_subnet",
+      "parentModule": "envs/prd/network::module.vpc.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 17,
+      "meta": {
+        "forEach": true
+      }
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.private_subnets.local.subnets",
+      "kind": "local",
+      "address": "module.vpc.module.private_subnets.local.subnets",
+      "parentModule": "envs/prd/network::module.vpc.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.private_subnets.output.ids",
+      "kind": "output",
+      "address": "module.vpc.module.private_subnets.output.ids",
+      "parentModule": "envs/prd/network::module.vpc.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 25
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.private_subnets.var.azs",
+      "kind": "variable",
+      "address": "module.vpc.module.private_subnets.var.azs",
+      "parentModule": "envs/prd/network::module.vpc.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.private_subnets.var.cidrs",
+      "kind": "variable",
+      "address": "module.vpc.module.private_subnets.var.cidrs",
+      "parentModule": "envs/prd/network::module.vpc.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 9
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.private_subnets.var.vpc_id",
+      "kind": "variable",
+      "address": "module.vpc.module.private_subnets.var.vpc_id",
+      "parentModule": "envs/prd/network::module.vpc.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 1
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.public_subnets",
+      "kind": "module",
+      "address": "module.vpc.module.public_subnets",
+      "parentModule": "envs/prd/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 21
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.public_subnets.aws_subnet.this",
+      "kind": "resource",
+      "address": "module.vpc.module.public_subnets.aws_subnet.this",
+      "type": "aws_subnet",
+      "parentModule": "envs/prd/network::module.vpc.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 17,
+      "meta": {
+        "forEach": true
+      }
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.public_subnets.local.subnets",
+      "kind": "local",
+      "address": "module.vpc.module.public_subnets.local.subnets",
+      "parentModule": "envs/prd/network::module.vpc.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.public_subnets.output.ids",
+      "kind": "output",
+      "address": "module.vpc.module.public_subnets.output.ids",
+      "parentModule": "envs/prd/network::module.vpc.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 25
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.public_subnets.var.azs",
+      "kind": "variable",
+      "address": "module.vpc.module.public_subnets.var.azs",
+      "parentModule": "envs/prd/network::module.vpc.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.public_subnets.var.cidrs",
+      "kind": "variable",
+      "address": "module.vpc.module.public_subnets.var.cidrs",
+      "parentModule": "envs/prd/network::module.vpc.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 9
+    },
+    {
+      "id": "envs/prd/network::module.vpc.module.public_subnets.var.vpc_id",
+      "kind": "variable",
+      "address": "module.vpc.module.public_subnets.var.vpc_id",
+      "parentModule": "envs/prd/network::module.vpc.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 1
+    },
+    {
+      "id": "envs/prd/network::module.vpc.output.cidr",
+      "kind": "output",
+      "address": "module.vpc.output.cidr",
+      "parentModule": "envs/prd/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 41
+    },
+    {
+      "id": "envs/prd/network::module.vpc.output.private_subnet_ids",
+      "kind": "output",
+      "address": "module.vpc.output.private_subnet_ids",
+      "parentModule": "envs/prd/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 49
+    },
+    {
+      "id": "envs/prd/network::module.vpc.output.public_subnet_ids",
+      "kind": "output",
+      "address": "module.vpc.output.public_subnet_ids",
+      "parentModule": "envs/prd/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 45
+    },
+    {
+      "id": "envs/prd/network::module.vpc.output.vpc_id",
+      "kind": "output",
+      "address": "module.vpc.output.vpc_id",
+      "parentModule": "envs/prd/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 37
+    },
+    {
+      "id": "envs/prd/network::module.vpc.var.azs",
+      "kind": "variable",
+      "address": "module.vpc.var.azs",
+      "parentModule": "envs/prd/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 9
+    },
+    {
+      "id": "envs/prd/network::module.vpc.var.cidr",
+      "kind": "variable",
+      "address": "module.vpc.var.cidr",
+      "parentModule": "envs/prd/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/prd/network::module.vpc.var.name",
+      "kind": "variable",
+      "address": "module.vpc.var.name",
+      "parentModule": "envs/prd/network::module.vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 1
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared",
+      "kind": "module",
+      "address": "module.vpc_shared",
+      "file": "envs/prd/network/main.tf",
+      "line": 15
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.aws_vpc.this",
+      "kind": "resource",
+      "address": "module.vpc_shared.aws_vpc.this",
+      "type": "aws_vpc",
+      "parentModule": "envs/prd/network::module.vpc_shared",
+      "file": "modules/vpc/main.tf",
+      "line": 13
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.private_subnets",
+      "kind": "module",
+      "address": "module.vpc_shared.module.private_subnets",
+      "parentModule": "envs/prd/network::module.vpc_shared",
+      "file": "modules/vpc/main.tf",
+      "line": 29
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.private_subnets.aws_subnet.this",
+      "kind": "resource",
+      "address": "module.vpc_shared.module.private_subnets.aws_subnet.this",
+      "type": "aws_subnet",
+      "parentModule": "envs/prd/network::module.vpc_shared.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 17,
+      "meta": {
+        "forEach": true
+      }
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.private_subnets.local.subnets",
+      "kind": "local",
+      "address": "module.vpc_shared.module.private_subnets.local.subnets",
+      "parentModule": "envs/prd/network::module.vpc_shared.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.private_subnets.output.ids",
+      "kind": "output",
+      "address": "module.vpc_shared.module.private_subnets.output.ids",
+      "parentModule": "envs/prd/network::module.vpc_shared.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 25
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.private_subnets.var.azs",
+      "kind": "variable",
+      "address": "module.vpc_shared.module.private_subnets.var.azs",
+      "parentModule": "envs/prd/network::module.vpc_shared.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.private_subnets.var.cidrs",
+      "kind": "variable",
+      "address": "module.vpc_shared.module.private_subnets.var.cidrs",
+      "parentModule": "envs/prd/network::module.vpc_shared.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 9
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.private_subnets.var.vpc_id",
+      "kind": "variable",
+      "address": "module.vpc_shared.module.private_subnets.var.vpc_id",
+      "parentModule": "envs/prd/network::module.vpc_shared.module.private_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 1
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.public_subnets",
+      "kind": "module",
+      "address": "module.vpc_shared.module.public_subnets",
+      "parentModule": "envs/prd/network::module.vpc_shared",
+      "file": "modules/vpc/main.tf",
+      "line": 21
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.public_subnets.aws_subnet.this",
+      "kind": "resource",
+      "address": "module.vpc_shared.module.public_subnets.aws_subnet.this",
+      "type": "aws_subnet",
+      "parentModule": "envs/prd/network::module.vpc_shared.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 17,
+      "meta": {
+        "forEach": true
+      }
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.public_subnets.local.subnets",
+      "kind": "local",
+      "address": "module.vpc_shared.module.public_subnets.local.subnets",
+      "parentModule": "envs/prd/network::module.vpc_shared.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.public_subnets.output.ids",
+      "kind": "output",
+      "address": "module.vpc_shared.module.public_subnets.output.ids",
+      "parentModule": "envs/prd/network::module.vpc_shared.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 25
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.public_subnets.var.azs",
+      "kind": "variable",
+      "address": "module.vpc_shared.module.public_subnets.var.azs",
+      "parentModule": "envs/prd/network::module.vpc_shared.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.public_subnets.var.cidrs",
+      "kind": "variable",
+      "address": "module.vpc_shared.module.public_subnets.var.cidrs",
+      "parentModule": "envs/prd/network::module.vpc_shared.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 9
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.module.public_subnets.var.vpc_id",
+      "kind": "variable",
+      "address": "module.vpc_shared.module.public_subnets.var.vpc_id",
+      "parentModule": "envs/prd/network::module.vpc_shared.module.public_subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 1
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.output.cidr",
+      "kind": "output",
+      "address": "module.vpc_shared.output.cidr",
+      "parentModule": "envs/prd/network::module.vpc_shared",
+      "file": "modules/vpc/main.tf",
+      "line": 41
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.output.private_subnet_ids",
+      "kind": "output",
+      "address": "module.vpc_shared.output.private_subnet_ids",
+      "parentModule": "envs/prd/network::module.vpc_shared",
+      "file": "modules/vpc/main.tf",
+      "line": 49
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.output.public_subnet_ids",
+      "kind": "output",
+      "address": "module.vpc_shared.output.public_subnet_ids",
+      "parentModule": "envs/prd/network::module.vpc_shared",
+      "file": "modules/vpc/main.tf",
+      "line": 45
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.output.vpc_id",
+      "kind": "output",
+      "address": "module.vpc_shared.output.vpc_id",
+      "parentModule": "envs/prd/network::module.vpc_shared",
+      "file": "modules/vpc/main.tf",
+      "line": 37
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.var.azs",
+      "kind": "variable",
+      "address": "module.vpc_shared.var.azs",
+      "parentModule": "envs/prd/network::module.vpc_shared",
+      "file": "modules/vpc/main.tf",
+      "line": 9
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.var.cidr",
+      "kind": "variable",
+      "address": "module.vpc_shared.var.cidr",
+      "parentModule": "envs/prd/network::module.vpc_shared",
+      "file": "modules/vpc/main.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/prd/network::module.vpc_shared.var.name",
+      "kind": "variable",
+      "address": "module.vpc_shared.var.name",
+      "parentModule": "envs/prd/network::module.vpc_shared",
+      "file": "modules/vpc/main.tf",
+      "line": 1
+    },
+    {
+      "id": "envs/prd/network::output.vpc_ids",
+      "kind": "output",
+      "address": "output.vpc_ids",
+      "file": "envs/prd/network/main.tf",
+      "line": 33
+    },
+    {
+      "id": "envs/prd/network::var.vpc_cidrs",
+      "kind": "variable",
+      "address": "var.vpc_cidrs",
+      "file": "envs/prd/network/main.tf",
+      "line": 1
+    }
+  ],
+  "edges": [
+    {
+      "from": "envs/prd/network::aws_instance.nat",
+      "to": "envs/prd/network::module.vpc",
+      "kind": "module_io",
+      "attr": "subnet_id",
+      "port": "public_subnet_ids",
+      "file": "envs/prd/network/main.tf",
+      "line": 30
+    },
+    {
+      "from": "envs/prd/network::aws_vpc_peering_connection.main_shared",
+      "to": "envs/prd/network::module.vpc",
+      "kind": "module_io",
+      "attr": "vpc_id",
+      "port": "vpc_id",
+      "file": "envs/prd/network/main.tf",
+      "line": 24
+    },
+    {
+      "from": "envs/prd/network::aws_vpc_peering_connection.main_shared",
+      "to": "envs/prd/network::module.vpc_shared",
+      "kind": "module_io",
+      "attr": "peer_vpc_id",
+      "port": "vpc_id",
+      "file": "envs/prd/network/main.tf",
+      "line": 25
+    },
+    {
+      "from": "envs/prd/network::module.vpc",
+      "to": "envs/prd/network::var.vpc_cidrs",
+      "kind": "reference",
+      "attr": "for_each",
+      "file": "envs/prd/network/main.tf",
+      "line": 7
+    },
+    {
+      "from": "envs/prd/network::module.vpc.aws_vpc.this",
+      "to": "envs/prd/network::module.vpc.var.cidr",
+      "kind": "reference",
+      "attr": "cidr_block",
+      "file": "modules/vpc/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/prd/network::module.vpc.aws_vpc.this",
+      "to": "envs/prd/network::module.vpc.var.name",
+      "kind": "reference",
+      "attr": "tags",
+      "file": "modules/vpc/main.tf",
+      "line": 16
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.private_subnets",
+      "to": "envs/prd/network::module.vpc.aws_vpc.this",
+      "kind": "module_io",
+      "attr": "vpc_id",
+      "file": "modules/vpc/main.tf",
+      "line": 32
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.private_subnets",
+      "to": "envs/prd/network::module.vpc.var.azs",
+      "kind": "module_io",
+      "attr": "azs",
+      "file": "modules/vpc/main.tf",
+      "line": 33
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.private_subnets",
+      "to": "envs/prd/network::module.vpc.var.azs",
+      "kind": "module_io",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 34
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.private_subnets",
+      "to": "envs/prd/network::module.vpc.var.cidr",
+      "kind": "module_io",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 34
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.private_subnets.aws_subnet.this",
+      "to": "envs/prd/network::module.vpc.module.private_subnets.local.subnets",
+      "kind": "reference",
+      "attr": "for_each",
+      "file": "modules/subnet/main.tf",
+      "line": 18
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.private_subnets.aws_subnet.this",
+      "to": "envs/prd/network::module.vpc.module.private_subnets.var.vpc_id",
+      "kind": "reference",
+      "attr": "vpc_id",
+      "file": "modules/subnet/main.tf",
+      "line": 20
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.private_subnets.local.subnets",
+      "to": "envs/prd/network::module.vpc.module.private_subnets.var.azs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.private_subnets.local.subnets",
+      "to": "envs/prd/network::module.vpc.module.private_subnets.var.cidrs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.private_subnets.output.ids",
+      "to": "envs/prd/network::module.vpc.module.private_subnets.aws_subnet.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/subnet/main.tf",
+      "line": 26
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.public_subnets",
+      "to": "envs/prd/network::module.vpc.aws_vpc.this",
+      "kind": "module_io",
+      "attr": "vpc_id",
+      "file": "modules/vpc/main.tf",
+      "line": 24
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.public_subnets",
+      "to": "envs/prd/network::module.vpc.var.azs",
+      "kind": "module_io",
+      "attr": "azs",
+      "file": "modules/vpc/main.tf",
+      "line": 25
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.public_subnets",
+      "to": "envs/prd/network::module.vpc.var.azs",
+      "kind": "module_io",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 26
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.public_subnets",
+      "to": "envs/prd/network::module.vpc.var.cidr",
+      "kind": "module_io",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 26
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.public_subnets.aws_subnet.this",
+      "to": "envs/prd/network::module.vpc.module.public_subnets.local.subnets",
+      "kind": "reference",
+      "attr": "for_each",
+      "file": "modules/subnet/main.tf",
+      "line": 18
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.public_subnets.aws_subnet.this",
+      "to": "envs/prd/network::module.vpc.module.public_subnets.var.vpc_id",
+      "kind": "reference",
+      "attr": "vpc_id",
+      "file": "modules/subnet/main.tf",
+      "line": 20
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.public_subnets.local.subnets",
+      "to": "envs/prd/network::module.vpc.module.public_subnets.var.azs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.public_subnets.local.subnets",
+      "to": "envs/prd/network::module.vpc.module.public_subnets.var.cidrs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/prd/network::module.vpc.module.public_subnets.output.ids",
+      "to": "envs/prd/network::module.vpc.module.public_subnets.aws_subnet.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/subnet/main.tf",
+      "line": 26
+    },
+    {
+      "from": "envs/prd/network::module.vpc.output.cidr",
+      "to": "envs/prd/network::module.vpc.aws_vpc.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/vpc/main.tf",
+      "line": 42
+    },
+    {
+      "from": "envs/prd/network::module.vpc.output.private_subnet_ids",
+      "to": "envs/prd/network::module.vpc.module.private_subnets",
+      "kind": "module_io",
+      "attr": "value",
+      "port": "ids",
+      "file": "modules/vpc/main.tf",
+      "line": 50
+    },
+    {
+      "from": "envs/prd/network::module.vpc.output.public_subnet_ids",
+      "to": "envs/prd/network::module.vpc.module.public_subnets",
+      "kind": "module_io",
+      "attr": "value",
+      "port": "ids",
+      "file": "modules/vpc/main.tf",
+      "line": 46
+    },
+    {
+      "from": "envs/prd/network::module.vpc.output.vpc_id",
+      "to": "envs/prd/network::module.vpc.aws_vpc.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/vpc/main.tf",
+      "line": 38
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.aws_vpc.this",
+      "to": "envs/prd/network::module.vpc_shared.var.cidr",
+      "kind": "reference",
+      "attr": "cidr_block",
+      "file": "modules/vpc/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.aws_vpc.this",
+      "to": "envs/prd/network::module.vpc_shared.var.name",
+      "kind": "reference",
+      "attr": "tags",
+      "file": "modules/vpc/main.tf",
+      "line": 16
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.private_subnets",
+      "to": "envs/prd/network::module.vpc_shared.aws_vpc.this",
+      "kind": "module_io",
+      "attr": "vpc_id",
+      "file": "modules/vpc/main.tf",
+      "line": 32
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.private_subnets",
+      "to": "envs/prd/network::module.vpc_shared.var.azs",
+      "kind": "module_io",
+      "attr": "azs",
+      "file": "modules/vpc/main.tf",
+      "line": 33
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.private_subnets",
+      "to": "envs/prd/network::module.vpc_shared.var.azs",
+      "kind": "module_io",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 34
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.private_subnets",
+      "to": "envs/prd/network::module.vpc_shared.var.cidr",
+      "kind": "module_io",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 34
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.private_subnets.aws_subnet.this",
+      "to": "envs/prd/network::module.vpc_shared.module.private_subnets.local.subnets",
+      "kind": "reference",
+      "attr": "for_each",
+      "file": "modules/subnet/main.tf",
+      "line": 18
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.private_subnets.aws_subnet.this",
+      "to": "envs/prd/network::module.vpc_shared.module.private_subnets.var.vpc_id",
+      "kind": "reference",
+      "attr": "vpc_id",
+      "file": "modules/subnet/main.tf",
+      "line": 20
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.private_subnets.local.subnets",
+      "to": "envs/prd/network::module.vpc_shared.module.private_subnets.var.azs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.private_subnets.local.subnets",
+      "to": "envs/prd/network::module.vpc_shared.module.private_subnets.var.cidrs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.private_subnets.output.ids",
+      "to": "envs/prd/network::module.vpc_shared.module.private_subnets.aws_subnet.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/subnet/main.tf",
+      "line": 26
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.public_subnets",
+      "to": "envs/prd/network::module.vpc_shared.aws_vpc.this",
+      "kind": "module_io",
+      "attr": "vpc_id",
+      "file": "modules/vpc/main.tf",
+      "line": 24
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.public_subnets",
+      "to": "envs/prd/network::module.vpc_shared.var.azs",
+      "kind": "module_io",
+      "attr": "azs",
+      "file": "modules/vpc/main.tf",
+      "line": 25
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.public_subnets",
+      "to": "envs/prd/network::module.vpc_shared.var.azs",
+      "kind": "module_io",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 26
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.public_subnets",
+      "to": "envs/prd/network::module.vpc_shared.var.cidr",
+      "kind": "module_io",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 26
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.public_subnets.aws_subnet.this",
+      "to": "envs/prd/network::module.vpc_shared.module.public_subnets.local.subnets",
+      "kind": "reference",
+      "attr": "for_each",
+      "file": "modules/subnet/main.tf",
+      "line": 18
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.public_subnets.aws_subnet.this",
+      "to": "envs/prd/network::module.vpc_shared.module.public_subnets.var.vpc_id",
+      "kind": "reference",
+      "attr": "vpc_id",
+      "file": "modules/subnet/main.tf",
+      "line": 20
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.public_subnets.local.subnets",
+      "to": "envs/prd/network::module.vpc_shared.module.public_subnets.var.azs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.public_subnets.local.subnets",
+      "to": "envs/prd/network::module.vpc_shared.module.public_subnets.var.cidrs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.module.public_subnets.output.ids",
+      "to": "envs/prd/network::module.vpc_shared.module.public_subnets.aws_subnet.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/subnet/main.tf",
+      "line": 26
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.output.cidr",
+      "to": "envs/prd/network::module.vpc_shared.aws_vpc.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/vpc/main.tf",
+      "line": 42
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.output.private_subnet_ids",
+      "to": "envs/prd/network::module.vpc_shared.module.private_subnets",
+      "kind": "module_io",
+      "attr": "value",
+      "port": "ids",
+      "file": "modules/vpc/main.tf",
+      "line": 50
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.output.public_subnet_ids",
+      "to": "envs/prd/network::module.vpc_shared.module.public_subnets",
+      "kind": "module_io",
+      "attr": "value",
+      "port": "ids",
+      "file": "modules/vpc/main.tf",
+      "line": 46
+    },
+    {
+      "from": "envs/prd/network::module.vpc_shared.output.vpc_id",
+      "to": "envs/prd/network::module.vpc_shared.aws_vpc.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/vpc/main.tf",
+      "line": 38
+    },
+    {
+      "from": "envs/prd/network::output.vpc_ids",
+      "to": "envs/prd/network::module.vpc",
+      "kind": "module_io",
+      "attr": "value",
+      "file": "envs/prd/network/main.tf",
+      "line": 34
+    }
+  ],
+  "diagnostics": []
+}

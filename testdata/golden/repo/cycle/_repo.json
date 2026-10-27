@@ -1,0 +1,35 @@
+{
+  "sha": "test-sha",
+  "roots": [
+    {
+      "path": "root",
+      "resourceCount": 2
+    }
+  ],
+  "modules": [
+    {
+      "path": "modules/a"
+    },
+    {
+      "path": "modules/b"
+    }
+  ],
+  "edges": [
+    {
+      "from": "modules/a",
+      "to": "modules/b",
+      "kind": "module_call"
+    },
+    {
+      "from": "modules/b",
+      "to": "modules/a",
+      "kind": "module_call"
+    },
+    {
+      "from": "root",
+      "to": "modules/a",
+      "kind": "module_call"
+    }
+  ],
+  "diagnostics": []
+}

@@ -1,0 +1,110 @@
+{
+  "sha": "test-sha",
+  "root": "envs/prd/app",
+  "env": "prd",
+  "component": "app",
+  "nodes": [
+    {
+      "id": "envs/prd/app::aws_route53_record.app_a",
+      "kind": "resource",
+      "address": "aws_route53_record.app_a",
+      "type": "aws_route53_record",
+      "file": "envs/prd/app/main.tf",
+      "line": 25
+    },
+    {
+      "id": "envs/prd/app::module.app",
+      "kind": "module",
+      "address": "module.app",
+      "file": "envs/prd/app/main.tf",
+      "line": 13,
+      "meta": {
+        "forEach": true
+      }
+    },
+    {
+      "id": "envs/prd/app::module.app.aws_lb.this",
+      "kind": "resource",
+      "address": "module.app.aws_lb.this",
+      "type": "aws_lb",
+      "parentModule": "envs/prd/app::module.app",
+      "file": "modules/service/main.tf",
+      "line": 5
+    },
+    {
+      "id": "envs/prd/app::module.app.output.url",
+      "kind": "output",
+      "address": "module.app.output.url",
+      "parentModule": "envs/prd/app::module.app",
+      "file": "modules/service/main.tf",
+      "line": 9
+    },
+    {
+      "id": "envs/prd/app::module.app.var.name",
+      "kind": "variable",
+      "address": "module.app.var.name",
+      "parentModule": "envs/prd/app::module.app",
+      "file": "modules/service/main.tf",
+      "line": 1
+    },
+    {
+      "id": "envs/prd/app::module.legacy",
+      "kind": "module",
+      "address": "module.legacy",
+      "file": "envs/prd/app/main.tf",
+      "line": 21
+    },
+    {
+      "id": "envs/prd/app::output.a_url",
+      "kind": "output",
+      "address": "output.a_url",
+      "file": "envs/prd/app/main.tf",
+      "line": 32
+    }
+  ],
+  "edges": [
+    {
+      "from": "envs/prd/app::aws_route53_record.app_a",
+      "to": "envs/prd/app::module.app",
+      "kind": "module_io",
+      "attr": "records",
+      "port": "url",
+      "file": "envs/prd/app/main.tf",
+      "line": 29
+    },
+    {
+      "from": "envs/prd/app::module.app.aws_lb.this",
+      "to": "envs/prd/app::module.app.var.name",
+      "kind": "reference",
+      "attr": "name",
+      "file": "modules/service/main.tf",
+      "line": 6
+    },
+    {
+      "from": "envs/prd/app::module.app.output.url",
+      "to": "envs/prd/app::module.app.aws_lb.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/service/main.tf",
+      "line": 10
+    },
+    {
+      "from": "envs/prd/app::output.a_url",
+      "to": "envs/prd/app::module.app",
+      "kind": "module_io",
+      "attr": "value",
+      "port": "url",
+      "file": "envs/prd/app/main.tf",
+      "line": 33
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "error",
+      "code": "module_not_found",
+      "message": "module.legacy のソース \"../../../modules/does-not-exist\" のディレクトリ（modules/does-not-exist）に .tf ファイルがありません",
+      "file": "envs/prd/app/main.tf",
+      "line": 21
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+:root {
+  --bg: #f6f7f9;
+  --panel: #ffffff;
+  --panel-2: #f0f2f5;
+  --border: #dde1e7;
+  --border-strong: #c3c9d2;
+  --text: #1d2330;
+  --muted: #677084;
+  --accent: #2f6feb;
+  --accent-soft: #e5eefe;
+  --resource: #2f6feb;
+  --data: #0f8f7e;
+  --module: #7c4dce;
+  --module-soft: rgba(124, 77, 206, 0.06);
+  --external: #8a6d3b;
+  --variable: #8a93a5;
+  --local: #9a7b4f;
+  --output: #c0567d;
+  --edge: #9aa3b2;
+  --edge-module: #7c4dce;
+  --edge-depends: #c27c0e;
+  --edge-replace: #d1453b;
+  --error: #d1453b;
+  --warning: #c27c0e;
+  --info: #2f6feb;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
+  --radius: 8px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12151b;
+    --panel: #1a1e26;
+    --panel-2: #222733;
+    --border: #2d3340;
+    --border-strong: #3c4454;
+    --text: #e4e7ee;
+    --muted: #9099ab;
+    --accent: #6c9cff;
+    --accent-soft: #1f2d4a;
+    --resource: #6c9cff;
+    --data: #3fc1ad;
+    --module: #a98bec;
+    --module-soft: rgba(169, 139, 236, 0.07);
+    --external: #c9a86a;
+    --variable: #8a93a5;
+    --local: #c9a370;
+    --output: #e07aa0;
+    --edge: #5d6577;
+    --edge-module: #a98bec;
+    --edge-depends: #e0a23a;
+    --edge-replace: #ef6b62;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Hiragino Sans",
+    "Noto Sans JP",
+    sans-serif;
+  font-size: 14px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+code,
+.mono {
+  font-family: var(--mono);
+  font-size: 12.5px;
+}
+
+button,
+select,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 6px;
+  padding: 4px 10px;
+  line-height: 20px;
+}
+.btn:hover {
+  border-color: var(--border-strong);
+}
+.btn[aria-pressed="true"] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.input,
+.select {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 6px;
+  padding: 4px 8px;
+  line-height: 20px;
+  min-width: 0;
+}
+.input:focus,
+.select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ---------- 上部バー ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  min-height: 52px;
+}
+.topbar .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+.topbar .spacer {
+  flex: 1;
+}
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  min-width: 0;
+}
+.crumbs .sep {
+  opacity: 0.6;
+}
+.crumbs .current {
+  color: var(--text);
+  font-weight: 600;
+}
+.field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+}
+
+/* ---------- 共通パーツ ---------- */
+.center-msg {
+  margin: auto;
+  color: var(--muted);
+  text-align: center;
+  padding: 40px;
+}
+.error-box {
+  margin: 24px;
+  padding: 12px 16px;
+  border: 1px solid var(--error);
+  border-radius: var(--radius);
+  color: var(--error);
+  background: var(--panel);
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 0 5px;
+  font-size: 11px;
+  line-height: 16px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 8px;
+}
+
+/* ---------- 診断情報 ---------- */
+.diags {
+  font-size: 13px;
+}
+.diags summary {
+  cursor: pointer;
+  color: var(--muted);
+  padding: 4px 0;
+}
+.diags ul {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  max-height: 240px;
+  overflow: auto;
+}
+.diags li {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 8px;
+  padding: 4px 0;
+  border-top: 1px solid var(--border);
+}
+.sev-error {
+  color: var(--error);
+}
+.sev-warning {
+  color: var(--warning);
+}
+.sev-info {
+  color: var(--info);
+}
+.diag-loc {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+}

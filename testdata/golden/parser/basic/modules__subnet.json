@@ -1,0 +1,88 @@
+{
+  "hasBackend": false,
+  "hasProvider": false,
+  "nodes": [
+    {
+      "kind": "resource",
+      "address": "aws_subnet.this",
+      "type": "aws_subnet",
+      "file": "modules/subnet/main.tf",
+      "line": 17,
+      "meta": {
+        "forEach": true
+      }
+    },
+    {
+      "kind": "local",
+      "address": "local.subnets",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "kind": "output",
+      "address": "output.ids",
+      "file": "modules/subnet/main.tf",
+      "line": 25
+    },
+    {
+      "kind": "variable",
+      "address": "var.azs",
+      "file": "modules/subnet/main.tf",
+      "line": 5
+    },
+    {
+      "kind": "variable",
+      "address": "var.cidrs",
+      "file": "modules/subnet/main.tf",
+      "line": 9
+    },
+    {
+      "kind": "variable",
+      "address": "var.vpc_id",
+      "file": "modules/subnet/main.tf",
+      "line": 1
+    }
+  ],
+  "edges": [
+    {
+      "from": "aws_subnet.this",
+      "to": "local.subnets",
+      "kind": "reference",
+      "attr": "for_each",
+      "file": "modules/subnet/main.tf",
+      "line": 18
+    },
+    {
+      "from": "aws_subnet.this",
+      "to": "var.vpc_id",
+      "kind": "reference",
+      "attr": "vpc_id",
+      "file": "modules/subnet/main.tf",
+      "line": 20
+    },
+    {
+      "from": "local.subnets",
+      "to": "var.azs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "local.subnets",
+      "to": "var.cidrs",
+      "kind": "reference",
+      "file": "modules/subnet/main.tf",
+      "line": 14
+    },
+    {
+      "from": "output.ids",
+      "to": "aws_subnet.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/subnet/main.tf",
+      "line": 26
+    }
+  ],
+  "calls": [],
+  "diags": null
+}

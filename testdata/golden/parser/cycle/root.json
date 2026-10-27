@@ -1,0 +1,25 @@
+{
+  "hasBackend": false,
+  "hasProvider": true,
+  "nodes": [
+    {
+      "kind": "module",
+      "address": "module.a",
+      "file": "root/main.tf",
+      "line": 3
+    }
+  ],
+  "edges": null,
+  "calls": [
+    {
+      "name": "a",
+      "source": "../modules/a",
+      "inputs": {},
+      "count": false,
+      "forEach": false,
+      "file": "root/main.tf",
+      "line": 3
+    }
+  ],
+  "diags": null
+}

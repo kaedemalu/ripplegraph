@@ -1,0 +1,226 @@
+{
+  "hasBackend": false,
+  "hasProvider": false,
+  "nodes": [
+    {
+      "kind": "resource",
+      "address": "aws_vpc.this",
+      "type": "aws_vpc",
+      "file": "modules/vpc/main.tf",
+      "line": 13
+    },
+    {
+      "kind": "module",
+      "address": "module.private_subnets",
+      "file": "modules/vpc/main.tf",
+      "line": 29
+    },
+    {
+      "kind": "module",
+      "address": "module.public_subnets",
+      "file": "modules/vpc/main.tf",
+      "line": 21
+    },
+    {
+      "kind": "output",
+      "address": "output.cidr",
+      "file": "modules/vpc/main.tf",
+      "line": 41
+    },
+    {
+      "kind": "output",
+      "address": "output.private_subnet_ids",
+      "file": "modules/vpc/main.tf",
+      "line": 49
+    },
+    {
+      "kind": "output",
+      "address": "output.public_subnet_ids",
+      "file": "modules/vpc/main.tf",
+      "line": 45
+    },
+    {
+      "kind": "output",
+      "address": "output.vpc_id",
+      "file": "modules/vpc/main.tf",
+      "line": 37
+    },
+    {
+      "kind": "variable",
+      "address": "var.azs",
+      "file": "modules/vpc/main.tf",
+      "line": 9
+    },
+    {
+      "kind": "variable",
+      "address": "var.cidr",
+      "file": "modules/vpc/main.tf",
+      "line": 5
+    },
+    {
+      "kind": "variable",
+      "address": "var.name",
+      "file": "modules/vpc/main.tf",
+      "line": 1
+    }
+  ],
+  "edges": [
+    {
+      "from": "aws_vpc.this",
+      "to": "var.cidr",
+      "kind": "reference",
+      "attr": "cidr_block",
+      "file": "modules/vpc/main.tf",
+      "line": 14
+    },
+    {
+      "from": "aws_vpc.this",
+      "to": "var.name",
+      "kind": "reference",
+      "attr": "tags",
+      "file": "modules/vpc/main.tf",
+      "line": 16
+    },
+    {
+      "from": "module.private_subnets",
+      "to": "aws_vpc.this",
+      "kind": "reference",
+      "attr": "vpc_id",
+      "file": "modules/vpc/main.tf",
+      "line": 32
+    },
+    {
+      "from": "module.private_subnets",
+      "to": "var.azs",
+      "kind": "reference",
+      "attr": "azs",
+      "file": "modules/vpc/main.tf",
+      "line": 33
+    },
+    {
+      "from": "module.private_subnets",
+      "to": "var.azs",
+      "kind": "reference",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 34
+    },
+    {
+      "from": "module.private_subnets",
+      "to": "var.cidr",
+      "kind": "reference",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 34
+    },
+    {
+      "from": "module.public_subnets",
+      "to": "aws_vpc.this",
+      "kind": "reference",
+      "attr": "vpc_id",
+      "file": "modules/vpc/main.tf",
+      "line": 24
+    },
+    {
+      "from": "module.public_subnets",
+      "to": "var.azs",
+      "kind": "reference",
+      "attr": "azs",
+      "file": "modules/vpc/main.tf",
+      "line": 25
+    },
+    {
+      "from": "module.public_subnets",
+      "to": "var.azs",
+      "kind": "reference",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 26
+    },
+    {
+      "from": "module.public_subnets",
+      "to": "var.cidr",
+      "kind": "reference",
+      "attr": "cidrs",
+      "file": "modules/vpc/main.tf",
+      "line": 26
+    },
+    {
+      "from": "output.cidr",
+      "to": "aws_vpc.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/vpc/main.tf",
+      "line": 42
+    },
+    {
+      "from": "output.private_subnet_ids",
+      "to": "module.private_subnets",
+      "kind": "reference",
+      "attr": "value",
+      "port": "ids",
+      "file": "modules/vpc/main.tf",
+      "line": 50
+    },
+    {
+      "from": "output.public_subnet_ids",
+      "to": "module.public_subnets",
+      "kind": "reference",
+      "attr": "value",
+      "port": "ids",
+      "file": "modules/vpc/main.tf",
+      "line": 46
+    },
+    {
+      "from": "output.vpc_id",
+      "to": "aws_vpc.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/vpc/main.tf",
+      "line": 38
+    }
+  ],
+  "calls": [
+    {
+      "name": "private_subnets",
+      "source": "../subnet",
+      "inputs": {
+        "azs": [
+          "var.azs"
+        ],
+        "cidrs": [
+          "var.azs",
+          "var.cidr"
+        ],
+        "vpc_id": [
+          "aws_vpc.this.id"
+        ]
+      },
+      "count": false,
+      "forEach": false,
+      "file": "modules/vpc/main.tf",
+      "line": 29
+    },
+    {
+      "name": "public_subnets",
+      "source": "../subnet",
+      "inputs": {
+        "azs": [
+          "var.azs"
+        ],
+        "cidrs": [
+          "var.azs",
+          "var.cidr"
+        ],
+        "vpc_id": [
+          "aws_vpc.this.id"
+        ]
+      },
+      "count": false,
+      "forEach": false,
+      "file": "modules/vpc/main.tf",
+      "line": 21
+    }
+  ],
+  "diags": null
+}

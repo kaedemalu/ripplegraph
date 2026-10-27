@@ -1,0 +1,602 @@
+/* ---------- ルートグラフ画面のレイアウト ---------- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.toolbar .spacer {
+  flex: 1;
+}
+.toolbar-sep {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  margin: 0 4px;
+}
+.toolbar-stats {
+  color: var(--muted);
+  font-size: 12px;
+}
+.graph-layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+.graph-canvas {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+}
+.graph-side {
+  width: 380px;
+  border-left: 1px solid var(--border);
+  background: var(--panel);
+  overflow: auto;
+}
+.layout-busy {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+  z-index: 10;
+}
+
+/* ---------- ポップオーバー ---------- */
+.popover-anchor {
+  position: relative;
+}
+.popover {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 30;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 8px;
+  min-width: 280px;
+  max-height: 420px;
+  overflow: auto;
+  list-style: none;
+  margin: 0;
+}
+.popover-actions {
+  display: flex;
+  gap: 12px;
+  margin: 6px 0;
+}
+.type-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.type-list label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+  cursor: pointer;
+}
+.linklike {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent);
+  text-align: left;
+}
+.linklike:hover {
+  text-decoration: underline;
+}
+.node-hits {
+  padding: 4px;
+  width: 420px;
+}
+.node-hit {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+.node-hit.active {
+  background: var(--accent-soft);
+}
+.node-hit-kind {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ---------- ノード ---------- */
+.react-flow {
+  --xy-background-color: var(--bg);
+  --xy-node-border-radius: 8px;
+  --xy-minimap-background-color: var(--panel);
+  --xy-controls-button-background-color: var(--panel);
+  --xy-controls-button-background-color-hover: var(--panel-2);
+  --xy-controls-button-color: var(--text);
+  --xy-controls-button-border-color: var(--border);
+  --xy-edge-stroke: var(--edge);
+}
+.react-flow__node {
+  /* カスタムノード側で描画する */
+  border: none;
+  background: none;
+  padding: 0;
+}
+.react-flow__handle {
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  min-width: 0;
+  min-height: 0;
+  border: none;
+}
+.gnode {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--resource);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: opacity 0.15s;
+}
+.gnode.kind-data {
+  border-left-color: var(--data);
+  border-style: solid solid solid solid;
+}
+.gnode.kind-module {
+  border-left-color: var(--module);
+  background: var(--module-soft), var(--panel);
+}
+.gnode.kind-module.external {
+  border-style: dashed;
+  border-left-style: solid;
+  border-left-color: var(--external);
+}
+.gnode.kind-variable {
+  border-left-color: var(--variable);
+  border-radius: 999px;
+}
+.gnode.kind-local {
+  border-left-color: var(--local);
+  border-radius: 999px;
+}
+.gnode.kind-output {
+  border-left-color: var(--output);
+  border-radius: 999px;
+}
+.gnode-icon {
+  flex: none;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 4px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--muted);
+}
+.kind-module .gnode-icon {
+  background: var(--module);
+}
+.kind-module.external .gnode-icon {
+  background: var(--external);
+}
+.kind-variable .gnode-icon {
+  background: var(--variable);
+}
+.kind-local .gnode-icon {
+  background: var(--local);
+}
+.kind-output .gnode-icon {
+  background: var(--output);
+}
+.gnode-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+  line-height: 1.25;
+}
+.gnode-type {
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gnode-name {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gnode-loc {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.node-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--module);
+  flex: none;
+}
+.node-badges:empty {
+  display: none;
+}
+.gnode-multi {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  border: 2px solid var(--module);
+  box-shadow: 3px 3px 0 -1px var(--module);
+}
+.gnode-toggle {
+  flex: none;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 12px;
+  color: var(--module);
+  font-weight: 600;
+}
+.gnode-toggle:hover {
+  border-color: var(--module);
+}
+/* far: 箱だけ（種別の色で塗る） */
+.gnode.stage-far {
+  padding: 0;
+  border-width: 0;
+  background: var(--resource);
+  box-shadow: none;
+}
+.gnode.kind-data.stage-far {
+  background: var(--data);
+}
+.gnode.kind-variable.stage-far {
+  background: var(--variable);
+}
+.gnode.kind-local.stage-far {
+  background: var(--local);
+}
+.gnode.kind-output.stage-far {
+  background: var(--output);
+}
+.gnode.kind-module.stage-far {
+  background: var(--module);
+  color: #fff;
+}
+.gnode.kind-module.external.stage-far {
+  background: var(--external);
+}
+.gnode.kind-module.stage-far {
+  padding: 0 12px;
+  font-size: 28px;
+}
+.gnode.kind-module.stage-far .gnode-icon,
+.gnode.kind-module.stage-far .gnode-toggle {
+  display: none;
+}
+
+/* 展開したモジュール（グループ） */
+.ggroup {
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid var(--module);
+  border-radius: 12px;
+  background: var(--module-soft);
+  position: relative;
+}
+.ggroup-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 10px;
+  color: var(--module);
+}
+.ggroup-name {
+  font-weight: 700;
+  font-family: var(--mono);
+}
+.ggroup-count {
+  color: var(--muted);
+  font-size: 12px;
+}
+.ggroup.stage-far .ggroup-header {
+  visibility: hidden;
+}
+.ggroup-far {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 40px;
+  color: var(--module);
+  background: var(--module-soft);
+  border-radius: 12px;
+  z-index: 5;
+  pointer-events: none;
+  font-family: var(--mono);
+}
+.ggroup-far strong {
+  font-size: 64px;
+}
+
+/* 選択状態 */
+.react-flow__node.is-dimmed {
+  opacity: 0.18;
+}
+.react-flow__node-group.is-dimmed {
+  opacity: 0.45;
+}
+.react-flow__node.is-selected .gnode,
+.react-flow__node.is-selected .ggroup {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.react-flow__node.is-related .gnode {
+  border-color: var(--accent);
+}
+
+/* ---------- エッジ ---------- */
+.react-flow__edge-path {
+  stroke-width: 1.4;
+}
+.react-flow__edge.kind-module_io .react-flow__edge-path {
+  stroke: var(--edge-module);
+}
+.react-flow__edge.kind-depends_on .react-flow__edge-path {
+  stroke: var(--edge-depends);
+  stroke-dasharray: 6 4;
+}
+.react-flow__edge.kind-replace_triggered_by .react-flow__edge-path {
+  stroke: var(--edge-replace);
+  stroke-dasharray: 2 3;
+}
+.react-flow__edge.indirect .react-flow__edge-path {
+  stroke-dasharray: 1 4;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+.react-flow__edge.is-dimmed {
+  opacity: 0.08;
+}
+.react-flow__edge.is-related .react-flow__edge-path {
+  stroke-width: 2.6;
+}
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke-width: 3;
+}
+.react-flow.stage-far .react-flow__edge-path {
+  stroke-width: 4;
+}
+
+/* ---------- エッジ情報 ---------- */
+.edge-info {
+  position: absolute;
+  left: 60px;
+  bottom: 16px;
+  max-width: min(640px, 70%);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 8px 12px;
+  z-index: 10;
+  font-size: 13px;
+}
+.edge-info-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.edge-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.edge-info li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+  padding: 2px 0;
+}
+
+/* ---------- 凡例 ---------- */
+.legend {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 11.5px;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--panel) 85%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  z-index: 5;
+  max-width: calc(100% - 20px);
+}
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.lg-edge {
+  display: inline-block;
+  width: 22px;
+  border-top: 2px solid #8b94a5;
+}
+.lg-edge.kind-module_io {
+  border-top-color: #8f6ad8;
+}
+.lg-edge.kind-depends_on {
+  border-top: 2px dashed #d08a1c;
+}
+.lg-edge.kind-replace_triggered_by {
+  border-top: 2px dotted #d9534b;
+}
+.lg-edge.indirect {
+  border-top: 2px dotted #8b94a5;
+}
+.legend-dir {
+  border-left: 1px solid var(--border);
+  padding-left: 10px;
+}
+
+/* ---------- 詳細パネル ---------- */
+.detail {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.detail-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+.detail-title {
+  margin: 0;
+  font-size: 15px;
+  word-break: break-all;
+}
+.detail-sub {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: var(--muted);
+}
+.kind-badge.kind-resource {
+  color: var(--resource);
+}
+.kind-badge.kind-data {
+  color: var(--data);
+}
+.kind-badge.kind-module {
+  color: var(--module);
+}
+.kind-badge.kind-variable {
+  color: var(--variable);
+}
+.kind-badge.kind-local {
+  color: var(--local);
+}
+.kind-badge.kind-output {
+  color: var(--output);
+}
+.detail-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  margin: 0;
+}
+.detail-grid dt {
+  color: var(--muted);
+}
+.detail-grid dd {
+  margin: 0;
+  word-break: break-all;
+}
+.btn-small {
+  padding: 0 8px;
+  line-height: 22px;
+}
+.hint {
+  color: var(--muted);
+  font-size: 12.5px;
+  margin: 0;
+}
+.edge-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.edge-item {
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 6px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.edge-item:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.edge-target {
+  word-break: break-all;
+}
+.edge-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.edge-kind {
+  font-size: 11px;
+  font-weight: 600;
+}
+.edge-kind.kind-module_io {
+  color: var(--edge-module);
+}
+.edge-kind.kind-depends_on {
+  color: var(--edge-depends);
+}
+.edge-kind.kind-replace_triggered_by {
+  color: var(--edge-replace);
+}
+.edge-loc {
+  color: var(--muted);
+  font-size: 11.5px;
+}

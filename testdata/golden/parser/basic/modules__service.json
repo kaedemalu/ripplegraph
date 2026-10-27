@@ -1,0 +1,45 @@
+{
+  "hasBackend": false,
+  "hasProvider": false,
+  "nodes": [
+    {
+      "kind": "resource",
+      "address": "aws_lb.this",
+      "type": "aws_lb",
+      "file": "modules/service/main.tf",
+      "line": 5
+    },
+    {
+      "kind": "output",
+      "address": "output.url",
+      "file": "modules/service/main.tf",
+      "line": 9
+    },
+    {
+      "kind": "variable",
+      "address": "var.name",
+      "file": "modules/service/main.tf",
+      "line": 1
+    }
+  ],
+  "edges": [
+    {
+      "from": "aws_lb.this",
+      "to": "var.name",
+      "kind": "reference",
+      "attr": "name",
+      "file": "modules/service/main.tf",
+      "line": 6
+    },
+    {
+      "from": "output.url",
+      "to": "aws_lb.this",
+      "kind": "reference",
+      "attr": "value",
+      "file": "modules/service/main.tf",
+      "line": 10
+    }
+  ],
+  "calls": [],
+  "diags": null
+}
